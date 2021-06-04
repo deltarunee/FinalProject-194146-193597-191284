@@ -1,0 +1,21 @@
+{% extends 'Kiosk/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>Account Signup</h1>
+<form action="{% url 'accountcreation' %}" method="POST">{% csrf_token %}
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username">
+
+    <label for="password">Password: </label>
+    <input type="password"name="password" id="password" minlength="6">
+    
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'Kiosk/base.html' %}
+{% load static %}
+
+{% block content %}
+<table>   
+<form action="{% url 'order_update' pk=d.pk %}" method="POST">{% csrf_token %}
+<div>
+    <label for="dname">Customer: </label>
+    <input type="text" name="dname" id="dname" value="{{d.cust_order}}" disabled>
+</div>
+    <label for="ctime">Food: </label>
+    <input type="text" name="ctime" id="ctime" value="{{d.food}}" disabled>
+<div>
+    <label for="qty">Quantity: </label>
+    <input type="number" name="qty" id="qty" value="{{d.qty}}" min="1">
+</div>
+    <label for="ptime">Ordered at: </label>
+    <input type="datetime" name="ptime" id="ptime" value="{{d.ordered_at}}" disabled>
+<div>
+    <label for="payment_method">Current Payment Mode: </label>
+    <input type="text" name="payment_method" id="payment_method" value="{{d.payment_mode}}" disabled>
+</div>
+    <label for="payment_update">New Payment Mode: </label>
+        <select name="payment_update" id="payment_update">
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                </select>
+
+    <input type="submit">
+</form>
+</table>
+{% endblock %} 

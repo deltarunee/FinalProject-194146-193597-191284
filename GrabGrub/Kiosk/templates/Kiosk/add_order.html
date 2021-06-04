@@ -1,0 +1,34 @@
+{% extends 'Kiosk/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Place your order here</h1>
+<form method="POST" action="{% url 'add_order' %}">{% csrf_token %}
+    <label for="cname">Customer</label>
+    <select name="cname" id="cname">
+        {% for x in customer %}
+            <option value="{{ x.pk }}">{{ x.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="fname">Food</label>
+    <select name="fname" id="fname">
+        {% for x in food %}
+            <option value="{{ x.pk }}">{{ x.name }}</option>
+        {% endfor %}
+        </select>
+
+    <label for="nfood">Quantity</label>
+    <input type="number" name="nfood" id="nfood" min="1">
+
+    <label for="pMode">Payment Method</label>
+        <select name="pMode" id="pMode">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+        </select>
+
+    <input type="submit">
+</form>
+
+{% endblock %}

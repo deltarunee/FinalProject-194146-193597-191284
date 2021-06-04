@@ -1,0 +1,33 @@
+{% extends 'Kiosk/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<table class="table table-striped">
+  <thead>
+      <th scope="col"> Customers </th>
+      <th scope="col"> Food </th>
+      <th scope="col"> Quantity </th>
+      <th scope="col"> Date Ordered </th>
+      <th scope="col"> Payment Method </th>
+  </thead>
+  <tbody>
+      
+      <tr>
+          <td> {{ d.cust_order }} </td>
+          <td> {{ d.food }} </td>
+          <td> {{ d.qty }} </td>
+          <td> {{ d.ordered_at }} </td>
+          <td> {{ d.payment_mode }} </td>
+      </tr>
+      
+  </tbody>
+</table>
+<a href="{% url 'order_update' pk=d.pk %}"><dutton type="button" class="btn btn-warning">Update</button></a>
+<a href="{% url 'order_delete' pk=d.pk %}"><dutton type="button" onclick="yeetdelete()" class="btn btn-danger">Delete</button></a>
+<a href="{% url 'order' %}"><dutton type="button" class="btn btn-outline-danger">Back</button></a>
+    
+
+
+{% endblock %}

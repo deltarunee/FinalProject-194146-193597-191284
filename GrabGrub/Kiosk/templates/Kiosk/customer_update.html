@@ -1,0 +1,26 @@
+{% extends 'Kiosk/base.html' %}
+{% load static %}
+	
+
+
+{% block content %}
+
+<form method="POST" action="{% url 'customer_update' pk=d.pk %}">{% csrf_token %}
+<div>
+    <label for="name">Name: </label>
+    <input type="text" name="name" id="name"value="{{ d.name }}">
+</div>
+<div>
+    <label for="desc">Address: </label>
+    <input type="text" name="address" id="address"value="{{ d.address }}">
+</div>
+<div>
+    <label for="price">City: </label>
+    <input type="text" name="city" id="city"value="{{ d.city }}">
+</div>
+
+    <input type="submit">
+</form>
+
+
+{% endblock %} 
